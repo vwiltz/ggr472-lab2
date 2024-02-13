@@ -10,18 +10,40 @@ const map = new mapboxgl.Map({
 
 // add a data source from geojson
 map.on('load', () => {
-    map.addSource('TCHC_data', {
+    //Add a data source containing GeoJSON data
+    map.addSource('neighbourhoods', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/vwiltz/ggr472-lab2/main/Community%20Housing%20Data.geojson'
-    }
+        data: 'https://raw.githubusercontent.com/vwiltz/ggr472-lab2/main/Neighbourhoods.geojson'
+
     });
 
-map.addLayer({
-    'id': 'location-points',
-    'type': 'circle',
-    'source': 'TCHC_data',
-    'paint': {
-        'circle-radius': 5,
-        'circle-color': '#000000'
-    }
+    map.addSource('TCHC-locations', {
+        'type': 'vector',
+        'url': 'mapbox://vwiltz.3wff5s3i'
+    });
+
+    map.addLayer({
+        'id': 'neighbs-fill',
+        'type': 'fill',
+        'source': 'neighbourhoods',
+        'paint': {
+            'fill-color': '#ffffff',
+            'fill-opacity': 1
+
+        }
+    });
+
+    map.addLayer({
+        'id': 'neighbs-outline',
+        'type': 'line',
+        'source': 'neighbourhoods',
+        'paint': {
+            'line-color': 'black',
+            'line-width': 1
+
+
+        }
+    });
+
+
 });
