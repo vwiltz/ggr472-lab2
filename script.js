@@ -3,9 +3,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidndpbHR6IiwiYSI6ImNscmZ0N3liOTA1Mmkybm8xeGU0c
 
 const map = new mapboxgl.Map({
     container: 'my-map',
-    style: 'mapbox://styles/vwiltz/clskrutgi03v801nl9rqp6ie4',
+    style: 'mapbox://styles/vwiltz/clskrutgi03v801nl9rqp6ie4', // custom style
     center: [-79.365, 43.725],
-    zoom: 11,
+    zoom: 10.5,
 });
 
 // add a data source from geojson
@@ -47,11 +47,8 @@ map.on('load', () => {
         'source': 'TCHC-locations', // data source: TCHC Community Housing data
         'paint': {
             'circle-radius': 2,
-            'circle-color': '#000000'
+            'circle-color': '#362c22'
         },
         'source-layer': 'Community_Housing_Data-btz8qw'
     });
-
-    map.moveLayer('settlement-major-label', 'neighbs-fill'); 
-
 });
