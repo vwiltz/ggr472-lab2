@@ -3,7 +3,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidndpbHR6IiwiYSI6ImNscmZ0N3liOTA1Mmkybm8xeGU0c
 
 const map = new mapboxgl.Map({
     container: 'my-map',
-    style: 'mapbox://styles/mapbox/streets-v12',
+    style: 'mapbox://styles/vwiltz/clskrutgi03v801nl9rqp6ie4',
     center: [-79.365, 43.725],
     zoom: 11,
 });
@@ -51,4 +51,7 @@ map.on('load', () => {
         },
         'source-layer': 'Community_Housing_Data-btz8qw'
     });
+
+    map.moveLayer('settlement-major-label', 'neighbs-fill'); 
+
 });
